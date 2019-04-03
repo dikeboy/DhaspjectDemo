@@ -12,10 +12,7 @@ import android.content.Intent;
 import android.util.Log;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.After;
-import org.aspectj.lang.annotation.Around;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.*;
 
 
 @Aspect
@@ -35,5 +32,20 @@ public class ContentAspect {
        Class mClass =   Class.forName("com.lin.aopdemotest.ThirdActivity");
         Intent intent =new Intent((Context) joinPoint.getThis(),mClass);
         ((Context) joinPoint.getThis()).startActivity(intent);
+    }
+
+    @After("execution(com.lin.aopdemotest.MainActivity.new(..))")
+    public void onTestInit()  {
+        Log.e(TAG, "initialization :::" );
+    }
+
+    @After("@within(com.lin.aopdemotest.anno.WithInMark)")
+    public void onTestWith(JoinPoint joinPoint) throws Throwable {
+        Log.e(TAG, "com.lin.aopdemotest.anno.WithInMark :::" );
+    }
+
+    @AfterReturning("@within(com.lin.aopdemotest.anno.WithInMark)")
+    public void onTestAfterReturn(JoinPoint joinPoint) throws Throwable {
+        Log.e(TAG, "com.lin.aopdemotest.anno.WithInMark :::" );
     }
 }
