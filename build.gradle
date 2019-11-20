@@ -5,13 +5,13 @@ buildscript {
     repositories {
         google()
         jcenter()
-        
+//        flatDir name: 'localRepository', dir: './app/plugins'
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.3.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath 'org.aspectj:aspectjtools:1.8.9'
-        classpath 'com.dhaspject:dhaspject:1.0.0'
+        classpath 'com.dhaspject:dhaspject:1.0.7'
     }
 }
 

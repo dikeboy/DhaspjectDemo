@@ -4,9 +4,8 @@
  * 
  */
 
-package com.lin.api_log;
+package com.lin.apiLog;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
@@ -33,19 +32,17 @@ public class ContentAspect {
         Intent intent =new Intent((Context) joinPoint.getThis(),mClass);
         ((Context) joinPoint.getThis()).startActivity(intent);
     }
-
-    @After("execution(com.lin.aopdemotest.MainActivity.new(..))")
-    public void onTestInit()  {
-        Log.e(TAG, "initialization :::" );
+    @After("execution(* com.lin.aopdemotest.MyTest.test(..))")
+    public void onmyTest(JoinPoint joinPoint) throws Throwable {
+        Log.e(TAG, "::::::com.lin........................:::" );
     }
-
-    @After("@within(com.lin.aopdemotest.anno.WithInMark)")
-    public void onTestWith(JoinPoint joinPoint) throws Throwable {
-        Log.e(TAG, "com.lin.aopdemotest.anno.WithInMark :::" );
+    @After("execution(* com.lin.apiLog.MyTest2.test(..))")
+    public void mytest(JoinPoint joinPoint) throws Throwable {
+        Log.e(TAG, "  ........................:::" );
     }
-
-    @AfterReturning("@within(com.lin.aopdemotest.anno.WithInMark)")
-    public void onTestAfterReturn(JoinPoint joinPoint) throws Throwable {
-        Log.e(TAG, "com.lin.aopdemotest.anno.WithInMark :::" );
+    @Around("execution(* com.lin.apiLog.MyTest2.getName(..))")
+    public Object mytestName(ProceedingJoinPoint joinPoint) throws Throwable {
+        Log.e(TAG, "source result is :::" +joinPoint.proceed());
+        return "zhangwu";
     }
 }

@@ -1,8 +1,8 @@
 package com.lin.aopdemotest
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.lin.apiLog.MyTest2
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity(): BaseActivity() {
@@ -13,7 +13,7 @@ class MainActivity(): BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        tv1.text = getText1("Dike")
+        tv1.text = getText1("Dike")+ "....."+MyTest2().getName()
 
         tv1.setOnClickListener {
 
@@ -22,6 +22,8 @@ class MainActivity(): BaseActivity() {
         tv2.setOnClickListener {
             jumpSecondActivity()
         }
+
+        MyTest2().test()
     }
 
     fun getText1(name: String): String{

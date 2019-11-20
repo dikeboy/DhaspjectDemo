@@ -4,7 +4,7 @@
  * 
  */
 
-package com.lin.api_log;
+package com.lin.apiLog;
 
 import android.util.Log;
 import org.aspectj.lang.JoinPoint;

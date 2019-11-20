@@ -21,6 +21,9 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        debug{
+
+        }
     }
 }
 
@@ -36,9 +39,9 @@ dependencies {
 
 
 laop{
-    kotlinfiles("com.lin","testpro.com.myapplication3")
-    javafiles("com.lin","testpro.com.myapplication3")
+    kotlinfiles("com.lin")
+    javafiles("com.lin")
     aopModule("api_log")
     aopType("debug")
-    moduleType(1) // 1:main app module 2: library module
+    hasFlavors(true)
 }
