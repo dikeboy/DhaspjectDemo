@@ -43,6 +43,11 @@ public class ContentAspect {
     @Around("execution(* com.lin.apiLog.MyTest2.getName(..))")
     public Object mytestName(ProceedingJoinPoint joinPoint) throws Throwable {
         Log.e(TAG, "source result is :::" +joinPoint.proceed());
-        return "zhangwu";
+        return "赵四";
+    }
+    @Around("execution(* com.lin.apiLog.MyTest3.getName(..))")
+    public Object mytestName3(ProceedingJoinPoint joinPoint) throws Throwable {
+        Log.e(TAG, "source result is :::" +joinPoint.proceed());
+        return "王五";
     }
 }

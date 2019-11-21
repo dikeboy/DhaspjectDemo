@@ -3,6 +3,7 @@ package com.lin.aopdemotest
 import android.content.Intent
 import android.os.Bundle
 import com.lin.apiLog.MyTest2
+import com.lin.apiLog.MyTest3
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity(): BaseActivity() {
@@ -13,7 +14,7 @@ class MainActivity(): BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        tv1.text = getText1("Dike")+ "....."+MyTest2().getName()
+        tv1.text = getText1("Dike")+ "....."+MyTest2().getName()+":"+ MyTest3().getName()
 
         tv1.setOnClickListener {
 
