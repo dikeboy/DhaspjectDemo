@@ -8,6 +8,6 @@ class MyTest2 {
     }
 
     fun getName(): String{
-        return "zhangshan"
+        return "zhangshan112"
     }
 }

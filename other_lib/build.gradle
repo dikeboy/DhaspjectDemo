@@ -22,7 +22,11 @@ android {
     }
 
 }
-
+afterEvaluate {
+    def isAndroidLibrary = plugins.hasPlugin("com.android.library")
+    def variants = isAndroidLibrary ? android.libraryVariants : android.applicationVariants
+    println("android==="+android.toString())
+}
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')

@@ -36,7 +36,28 @@ dependencies {
     implementation project(':api_log')
     implementation project(':other_lib')
 }
+afterEvaluate {
+    def isAndroidLibrary = project.plugins.hasPlugin("com.android.library")
+    def variants = isAndroidLibrary ? project.android.libraryVariants : project.android.applicationVariants
 
+    variants.all { variant ->
+        variant.outputs.all { output ->
+            JavaCompile javaCompile = variant.getJavaCompileProvider().get()
+            javaCompile.doLast {
+                println("i am finish=="+javaCompile.getName())
+            }
+            javaCompile.dependsOn()
+
+            def kotlinCompileTask = project.tasks.findByName("compileDebugKotlin")
+            println("i am finish begin =="+kotlinCompileTask)
+            if (kotlinCompileTask != null) {
+                kotlinCompileTask.doLast {
+                    println("i am finish 21==")
+                }
+            }
+        }
+    }
+}
 
 laop{
     kotlinfiles("com.lin")

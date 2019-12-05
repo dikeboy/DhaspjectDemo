@@ -40,4 +40,5 @@ dependencies {
 laop{
     aopModule("api_log")
     aopType("debug")
+    useJavaTask(true)
 }

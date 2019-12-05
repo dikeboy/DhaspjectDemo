@@ -12,7 +12,7 @@ buildscript {
         classpath 'com.android.tools.build:gradle:3.3.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath "org.aspectj:aspectjtools:$aspectjtools_version"
-        classpath 'com.dhaspject:dhaspject:1.0.9'
+        classpath 'com.dhaspject:dhaspject:1.1.0'
     }
 }
 
